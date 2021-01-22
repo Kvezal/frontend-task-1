@@ -1,0 +1,12 @@
+<ng-container *search="let search; for 'User'; results$ as results$; totalReached$ as totalReached$; nextPage as nextPage">
+
+  <input (input)="search($any($event.target).value)" type="text"/>
+  <button (click)="nextPage()">nextPage</button>
+
+  <p>{{ totalReached$ | async }}</p>
+
+  <div *ngFor="let result of results$ | async">
+    {{ result.email }}
+  </div>
+</ng-container>
+
